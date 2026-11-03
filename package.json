@@ -1,0 +1,26 @@
+{
+  "name": "proactive-agent-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A durable proactive-agent starter: pi-durable 1.5 kernel, an API server, a cron tick and one sweep-shaped example agent. Offline faux mode, zero API keys.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "npm run dev -w apps/server",
+    "tick": "npm run tick -w apps/cron",
+    "cron": "npm run cron -w apps/cron",
+    "test": "npm test --workspaces --if-present",
+    "check": "npm run check --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}
