@@ -28,6 +28,9 @@ In a second terminal:
 npm run tick        # one sweep now
 npm run cron        # or a tick every 60s
 curl -N -H "authorization: Bearer $PAS_CLIENT_TOKEN" http://127.0.0.1:4851/v1/stream
+curl -X POST -H "authorization: Bearer $PAS_CRON_TOKEN" -H "content-type: application/json" \
+  -H "idempotency-key: manual-1" -d '{"requestId":"manual:test:1"}' \
+  http://127.0.0.1:4851/v1/workflows/stub-sweep   # trigger by hand (cron scope)
 ```
 
 `npm run dev:all` runs the server and the cron loop together under one Ctrl-C.
