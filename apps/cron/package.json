@@ -1,0 +1,15 @@
+{
+  "name": "@pas/cron",
+  "private": true,
+  "description": "The tick: calls the stub-sweep workflow route with the cron token, once or on an interval",
+  "type": "module",
+  "scripts": {
+    "tick": "tsx src/main.ts tick",
+    "cron": "tsx src/main.ts loop",
+    "check": "tsc -p .",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "@pas/agent-sdk": "*"
+  }
+}
