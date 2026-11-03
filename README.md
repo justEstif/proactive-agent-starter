@@ -76,3 +76,7 @@ The kernel is a pass-through, not a narrowing: anything `defineExtension` can ex
 ## License
 
 MIT.
+
+## Credits
+
+The kernel packages are extracted from [disler/pi-durable-news-agent](https://github.com/disler/pi-durable-news-agent) (MIT), cross-checked against [disler/durable-pi](https://github.com/disler/durable-pi) (MIT). Durability comes from [earendil-works/pi](https://github.com/earendil-works/pi)'s `@earendil-works/pi-durable`.
