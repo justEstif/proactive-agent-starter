@@ -16,7 +16,8 @@
     "tick": "npm run tick -w apps/cron",
     "cron": "npm run cron -w apps/cron",
     "test": "npm test --workspaces --if-present",
-    "check": "npm run check --workspaces --if-present"
+    "check": "npm run check --workspaces --if-present",
+    "dev:all": "node scripts/dev.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
