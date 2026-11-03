@@ -1,0 +1,24 @@
+{
+  "name": "@pas/server",
+  "private": true,
+  "description": "The proactive-agent-starter API: hosts the durable harness and the example sweep agent behind an HTTP surface",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "start": "tsx src/main.ts",
+    "check": "tsc -p .",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "dependencies": {
+    "@pas/agent-sdk": "*",
+    "@pas/durable-agent": "*",
+    "@earendil-works/chord": "^1.5.0",
+    "@earendil-works/pi-ai": "^1.5.0",
+    "@earendil-works/pi-durable": "^1.5.0",
+    "@earendil-works/pi-schema": "^1.5.0",
+    "express": "5.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6"
+  }
+}

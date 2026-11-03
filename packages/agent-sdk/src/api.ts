@@ -1,5 +1,5 @@
 // The v1 wire contract shared by the server, the cron and any client. Generic: no domain types.
-import type { WireAgentEvent, WireSnapshotEvent } from "./wire.ts";
+import type { WireEntry } from "./wire.ts";
 
 export const API_VERSION = 1 as const;
 
@@ -52,8 +52,7 @@ export interface WorkflowBody {
 /** Every frame the SSE stream can send. */
 export type Frame =
   | { type: "hello"; apiVersion: number; serverTime: number; device: string; mainConversationId: number }
-  | { type: "agent.snapshot"; conversationId: number; snapshot: WireSnapshotEvent }
-  | { type: "agent.batch"; conversationId: number; events: readonly WireAgentEvent[] }
+  | { type: "agent.snapshot"; conversationId: number; snapshot: { entries: readonly WireEntry[] } }
   | { type: "agent.state"; state: { busy: boolean; conversationId: number } }
   | { type: "sweep"; sweep: SweepSummary };
 
