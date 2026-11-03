@@ -1,0 +1,14 @@
+{
+  "name": "@pas/agent-sdk",
+  "private": true,
+  "description": "proactive-agent-starter wire contract: routes, frames, client, retry, tokens and logger",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./node": "./src/node/index.ts"
+  },
+  "scripts": {
+    "check": "tsc -p .",
+    "test": "tsx --test tests/*.test.ts"
+  }
+}
