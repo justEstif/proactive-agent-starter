@@ -53,6 +53,7 @@ export function startSweep(
       }),
     )
     .catch((error) => {
+      if (/closed/i.test(String(error))) return;
       log.error("sweep.submit_failed", { sweepId: sweep.id, error: String(error) });
       store.sweeps.setStatus(sweep.id, "failed", String(error));
       bus.publish({
@@ -79,6 +80,9 @@ export function watchRunningSweeps(deps: SweepDeps, ctx: Context): void {
         }
       })
       .catch((error) => {
+        // A shutdown closes the harness under the watcher: the sweep is not failed, the next
+        // restart picks it up again.
+        if (/closed/i.test(String(error))) return;
         deps.log.error("sweep.watch_failed", { sweepId: sweep.id, error: String(error) });
         deps.store.sweeps.setStatus(sweep.id, "failed", String(error));
       });

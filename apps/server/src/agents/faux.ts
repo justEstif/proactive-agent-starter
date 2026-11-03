@@ -58,5 +58,10 @@ export function fauxRules(): readonly FauxRule[] {
 }
 
 export function installServerFaux(models: MutableModels): void {
-  installScriptedFaux(models, fauxRules());
+  const tokensPerSecond = Number(process.env.PAS_FAUX_TPS);
+  installScriptedFaux(models, fauxRules(), {
+    ...(Number.isFinite(tokensPerSecond) && tokensPerSecond > 0
+      ? { tokensPerSecond }
+      : {}),
+  });
 }
